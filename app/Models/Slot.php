@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Block extends Model
+class Slot extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['code'];
+    protected $fillable = ['number'];
 
-    public function slots()
+    public function block()
     {
-        return $this->hasMany(Slot::class);
+        return $this->belongsTo(Block::class);
     }
 }
