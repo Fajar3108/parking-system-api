@@ -43,4 +43,30 @@ class TransactionController extends Controller
             'message' => 'managed to park in this slot',
         ]);
     }
+
+    public function stop_parking(Request $request)
+    {
+        $slot = Slot::find($request->slot_id);
+
+        if (!$slot) return response()->json([
+            'success' => false,
+            'message' => 'Invalid Slot ID',
+        ]);
+
+        $transaction = Transaction::where('slot_id', $slot->id)->where('end', NULL)->first();
+
+        if (!$transaction) return response()->json([
+            'success' => false,
+            'message' => 'no one is parking here',
+        ]);
+
+        $transaction->update([
+            'end' => now(),
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'data has been updated',
+        ]);
+    }
 }

@@ -23,4 +23,5 @@ Route::prefix('/blocks')->controller(BlockController::class)->group(function () 
 
 Route::controller(TransactionController::class)->group(function () {
     Route::post('/start-parking', 'start_parking');
+    Route::patch('/stop-parking', 'stop_parking');
 });
