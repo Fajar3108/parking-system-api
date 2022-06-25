@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlockController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,4 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('/blocks')->controller(BlockController::class)->group(function () {
     Route::get('/', 'index');
     Route::get('/{block}', 'show');
+});
+
+Route::controller(TransactionController::class)->group(function () {
+    Route::post('/start-parking', 'start_parking');
 });
