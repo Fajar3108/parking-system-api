@@ -12,7 +12,7 @@ class BlockController extends Controller
      */
     public function index()
     {
-        return BlockResource::collection(Block::get());
+        return BlockResource::collection(Block::get())->collection;
     }
 
     /**
