@@ -15,4 +15,9 @@ class Block extends Model
     {
         return $this->hasMany(Slot::class);
     }
+
+    public function transactions()
+    {
+        return $this->hasManyThrough(Transaction::class, Slot::class);
+    }
 }
