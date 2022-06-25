@@ -17,4 +17,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('/blocks')->controller(BlockController::class)->group(function () {
     Route::get('/', 'index');
+    Route::get('/{block}', 'show');
 });

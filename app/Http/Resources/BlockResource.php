@@ -17,7 +17,7 @@ class BlockResource extends JsonResource
         return [
             'id' => $this->id,
             'code' => $this->code,
-            'slots' => $this->slots()->count(),
+            'total_slots' => $this->slots()->count(),
             'avaible_slot' => $this->slots()->count() - $this->transactions()->where('end', NULL)->count(),
         ];
     }
