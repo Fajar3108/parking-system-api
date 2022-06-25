@@ -9,10 +9,15 @@ class Slot extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['number'];
+    protected $fillable = ['number', 'block_id'];
 
     public function block()
     {
         return $this->belongsTo(Block::class);
+    }
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
     }
 }

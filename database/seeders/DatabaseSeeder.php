@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             BlockSeeder::class,
             SlotSeeder::class,
+            TransactionSeeder::class,
         ]);
     }
 }
